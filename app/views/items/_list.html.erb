@@ -1,0 +1,16 @@
+<table>
+	<tr> 
+		<th> ID   </th>
+		<th> Name </th>
+		<th> Quantity </th>
+		<th> Price </th>
+	</tr>
+    <% @items.each do |item| %>
+		<tr>
+			<td> <%= item.id %> </td>
+			<td> <%= item.item_name %> </td>   
+			<td> <%= item.stock_quantity %> </td>
+			<td> <%= item.marked_price %> </td>
+		</tr>
+    <% end %>
+</table>

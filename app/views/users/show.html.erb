@@ -1,0 +1,8 @@
+<h1> <%= @user.first_name %> </h1>
+
+<p>User name is <%= @user.first_name %>. User ID is <%= @user.id%>. User DOB is <%= @user.date_of_birth %> <%= @user.first_name %> has items 
+	<% @user.items.each do |item| %>
+		<%= item.item_name %>.
+	<% end %>
+
+ </p>
