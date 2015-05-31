@@ -1,23 +1,28 @@
 class ItemsController < ApplicationController
 
 	def index
-		@items = Item.all
+		@user = User.find(current_user.id)
 	end
 
 	def show
+		@user = User.find(current_user.id)
 		@item = Item.find(params[:id])
 	end
 
+
 	def new
+		@user = User.find(current_user.id)
 		@item = Item.new
 	end
 
 	def create
+		 @user = User.find(current_user.id)
 		 @item = Item.new(item_params)
 		 @item.user_id = current_user.id
+		 # @items = @user.items.create(item_params)
 
 		if @item.save
-		  redirect_to items_path
+		  redirect_to user_items_path
 		else
 		  render :new
 		end
@@ -25,24 +30,28 @@ class ItemsController < ApplicationController
 
 
 	def edit
+		@user = User.find(current_user.id)
 		@item = Item.find(params[:id])
+		@item.user_id = current_user.id
 	end
 
 	def update
+		@user = User.find(current_user.id)
 		@item = Item.find(params[:id])
+		@item.user_id = current_user.id
 
 		if @item.update_attributes(item_params)
-		redirect_to items_path
+		redirect_to user_items
 		else
 		render :edit
 		end
 	end
 
-	def destroy
-		@item = Item.find(params[:id])
-		@item.destroy
-		redirect_to items_path
-	end
+# 	def destroy
+# 		@item = Item.find(params[:id])
+# 		@item.destroy
+# 		redirect_to user_items
+# 	end
 
 private
 	def item_params

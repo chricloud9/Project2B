@@ -1,3 +1,23 @@
 <h1>New Item!</h1>
 
-<%= render 'form'%>
+<%= form_for ([@user, @user.items.build]) do |f| %>
+    
+    <div>
+        <%= f.label :item_name %>
+        <%= f.text_field :item_name %>
+    </div>
+
+    <div>
+        <%= f.label :stock_quantity %>
+        <%= f.number_field :stock_quantity %>
+    </div>
+
+    <div>
+        <%= f.label :marked_price %>
+        <%= f.number_field :marked_price %>
+    </div>
+
+
+    <%= f.submit "Submit!" %> 
+
+<% end %>

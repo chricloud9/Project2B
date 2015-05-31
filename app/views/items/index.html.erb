@@ -1,3 +1,18 @@
 <h2>Items List</h2>
 
-<%= render 'list'%>
+	<table>
+
+		<tr> 
+			<th> Item Name: </th>
+			<th> Stock Quantity: </th>
+			<th> Price: </th>
+
+		</tr>
+   		 <% @user.items.each do |user| %>
+	        <tr>
+	            <td> <%= user.item_name %></td>
+	            <td> <%= user.stock_quantity %></td>
+	            <td> <%= user.marked_price %></td>
+	        </tr>
+    	<% end %>
+    </table>

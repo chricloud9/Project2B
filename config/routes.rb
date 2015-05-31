@@ -9,25 +9,31 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
+  resources :users do
+    resources :items
+  end
 
 
-  get "users/" => "users#index"
-  get "users/new" => "users#new", as: :new_user
-  get "users/:id" => "users#show", as: :user
-  post "users/" => "users#create"
-  get "users/:id/edit" => "users#edit", as: :edit_user
-  patch "users/:id" => "users#update"
-  delete "users/:id" => "users#destroy"
 
 
-  get "items/" => "items#index"
-  get "items/new" => "items#new", as: :new_item
-  get "items/:id" => "items#show", as: :item
-  post "items/" => "items#create"
-  get "items/:id/edit" => "items#edit", as: :edit_item
-  patch "items/:id" => "items#update"
-  delete "items/:id" => "items#destroy"
+  # get "users/" => "users#index"
+  # get "users/new" => "users#new", as: :new_user
+  # get "users/:id" => "users#show", as: :user
+  # get "users/:id/items" => "users#show_user_item"
+  # post "users/" => "users#create"
+  # get "users/:id/edit" => "users#edit", as: :edit_user
+  # patch "users/:id" => "users#update"
+  # delete "users/:id" => "users#destroy"
+
+
+  # get "items/" => "items#index"
+  # get "items/new" => "items#new", as: :new_item
+  # get "items/:id" => "items#show", as: :item
+  # post "items/" => "items#create"
+  # get "items/:id/edit" => "items#edit", as: :edit_item
+  # patch "items/:id" => "items#update"
+  # delete "items/:id" => "items#destroy"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

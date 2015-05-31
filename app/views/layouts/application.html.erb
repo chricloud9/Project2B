@@ -9,12 +9,18 @@
 
 <body>
 	<% if current_user %>
-	  Logged in as: <%= current_user.first_name %> <%= link_to 'Log Out', logout_path, method: :delete %>
+	  Logged in as: <%= current_user.first_name %> 
+	  <%= link_to 'Log Out', logout_path, method: :delete %>
+	  <td> <%= link_to "Edit Profile", edit_user_path(current_user)%> </td> 
+	  <%= link_to "My Items", user_items_path(current_user) %>
+
+
 	<% else %>
 	  <%= link_to 'Log In', login_path %>
-	  <%= link_to 'Sign Up', users_new_path %>
+	  <%= link_to 'Sign Up', new_user_path %>
 	<% end %>
 <%= yield %>
+<%= link_to 'homepage', root_path %>
 
 </body>
 </html>
